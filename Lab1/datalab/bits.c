@@ -22,9 +22,9 @@
 team_struct team =
 {
    /* UID number: Replace with your student uid */
-    "123456789", 
+    "904064791", 
    /* Student name: Replace with the full name */
-    "Joe Bruin",
+    "Stewart Dulaney",
 };
 
 #if 0
@@ -129,7 +129,8 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  return 2;
+  /* use Demorgan's law to represent AND using NOT, OR */
+  return (~(~x | ~y));
 }
 
 
