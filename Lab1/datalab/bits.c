@@ -179,7 +179,12 @@ int bitXor(int x, int y) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  return 2;
+  /*
+    A left shift of 3 on n multiplies it by 8,
+    x is then right shifted this amount.
+    The last byte is then isolated with a mask.
+  */
+  return (x >> (n << 3)) & 0xff;
 }
 /* 
  * isNonZero - Check whether x is nonzero using
