@@ -145,7 +145,16 @@ int bitAnd(int x, int y) {
  *   Rating: 3
  */
 int bitMask(int highbit, int lowbit) {
-  return 2;
+  /*
+    mask1 masks the bits above highbit
+    mask2 masks the bits below lowbit
+    combine masks to get 1's above and below
+    NOT to get 1's in the final mask
+  */
+  int i = ~0;
+  int mask1 = i << highbit << 1;
+  int mask2 = ~(i << lowbit);
+  return ~(mask1 | mask2);
 }
 /* 
  * bitXor - x^y using only ~ and & 
