@@ -164,7 +164,11 @@ int bitMask(int highbit, int lowbit) {
  *   Rating: 2
  */
 int bitXor(int x, int y) {
-  return 2;
+  /*
+    use Boolean expression to express
+    XOR in terms or NOT, AND
+  */
+  return ~(x & y) & ~(~x & ~y);
 }
 /* 
  * getByte - Extract byte n from word x
