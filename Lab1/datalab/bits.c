@@ -195,7 +195,13 @@ int getByte(int x, int n) {
  *   Rating: 4 
  */
 int isNonZero(int x) {
-  return 2;
+  /*
+    Negating 0 returns the same number (with the same 0 sign bit).
+    Shift the sign bits, OR them, and then mask with 1 to see if
+    either had a 1 sign bit.
+  */
+  int notx = ~x + 1;
+  return ((notx >> 31) | (x >> 31)) & 1;
 }
 /*
  * isPower2 - returns 1 if x is a power of 2, and 0 otherwise
