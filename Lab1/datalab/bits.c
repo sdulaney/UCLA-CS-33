@@ -243,7 +243,11 @@ int addOK(int x, int y) {
  *   Rating: 2
  */
 int copyLSB(int x) {
-  return 2;
+  /*
+    Left shift least significant bit to most significant bit position.
+    Exploit arithmetic right shift to copy most significant bit.
+  */
+  return (x << 31) >> 31;
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
