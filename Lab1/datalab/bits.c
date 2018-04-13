@@ -285,5 +285,8 @@ int sm2tc(int x) {
  *   Rating: 1
  */
 int tmax(void) {
-  return 2;
+  /*
+    clear the bit with negative weight but set all others
+  */
+  return ~(1 << 31);
 }
