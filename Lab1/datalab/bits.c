@@ -233,7 +233,15 @@ int abs(int x) {
  *   Rating: 3
  */
 int addOK(int x, int y) {
-  return 2;
+  /*
+    Isolate the most significant bit of x, y, and their sum.
+    Returns 1 as long as two numbers with the same sign bit
+    do not result in a sum with the opposite sign bit.
+  */
+  int xMSB = x >> 31;
+  int yMSB = y >> 31;
+  int sumMSB = (x + y) >> 31;
+  return !(xMSB & yMSB & ~sumMSB) & !(~xMSB & ~yMSB & sumMSB);
 }
 /* 
  * copyLSB - set all bits of result to least significant bit of x
