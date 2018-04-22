@@ -222,7 +222,14 @@ int isPower2(int x) {
  *   Rating: 4
  */
 int abs(int x) {
-  return 2;
+  /*
+    Arithmetic right shifting sets all bits equal to the sign bit.
+    ANDing ~y with one possibility and y with the other performs the
+    function of a multiplexer-- returning x when x is positive and
+    the two's complement of x when x is negative.
+  */
+  int y = x >> 31;
+  return (x & ~y) | ((~x + 1) & y);
 }
 /* 
  * addOK - Determine if can compute x+y without overflow
