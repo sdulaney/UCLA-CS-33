@@ -284,7 +284,14 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 3
  */
 int multFiveEights(int x) {
-  return 2;
+  /*
+    Left shift x two bits to multiply by 2^2 = 4 and get 4x.
+    Add x to get 5x. If x is negative, add 2^3 - 1 = 7 before right
+    arithmetic shifting three bits to divide by 2^3 = 8.
+  */
+  int y = (x << 2) + x;
+  int z = 7 & (y >> 31);
+  return (y + z) >> 3;
 }
 /* 
  * sm2tc - Convert from sign-magnitude to two's complement
