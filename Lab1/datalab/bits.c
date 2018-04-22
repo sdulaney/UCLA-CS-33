@@ -129,7 +129,9 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  /* use Demorgan's law to represent AND using NOT, OR */
+  /* 
+    Use Demorgan's law to represent AND using NOT, OR.
+  */
   return (~(~x | ~y));
 }
 
@@ -146,10 +148,10 @@ int bitAnd(int x, int y) {
  */
 int bitMask(int highbit, int lowbit) {
   /*
-    mask1 masks the bits above highbit
-    mask2 masks the bits below lowbit
-    combine masks to get 1's above and below
-    NOT to get 1's in the final mask
+    mask1 masks the bits above highbit.
+    mask2 masks the bits below lowbit.
+    Combine masks to get 1's above and below.
+    NOT to get 1's in the final mask.
   */
   int i = ~0;
   int mask1 = i << highbit << 1;
@@ -165,8 +167,8 @@ int bitMask(int highbit, int lowbit) {
  */
 int bitXor(int x, int y) {
   /*
-    use Boolean expression to express
-    XOR in terms or NOT, AND
+    Use Boolean expression to express
+    XOR in terms or NOT, AND.
   */
   return ~(x & y) & ~(~x & ~y);
 }
@@ -328,7 +330,7 @@ int sm2tc(int x) {
  */
 int tmax(void) {
   /*
-    clear the bit with negative weight but set all others
+    Clear the bit with negative weight but set all others.
   */
   return ~(1 << 31);
 }
