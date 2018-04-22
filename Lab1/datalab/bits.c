@@ -307,7 +307,12 @@ int multFiveEights(int x) {
  *   Rating: 4
  */
 int sm2tc(int x) {
-  return 2;
+  /*
+    If x is positive, return x. If x is negative, mask out
+    the sign bit then take the two's complement.
+  */
+  int y = x >> 31;
+  return ((~(~(1 << 31) & x) + 1) & y) | (x & ~y);
 }
 /* 
  * TMax - return maximum two's complement integer 
