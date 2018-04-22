@@ -212,7 +212,13 @@ int isNonZero(int x) {
  *   Rating: 4
  */
 int isPower2(int x) {
-  return 2;
+  /*
+    If x is positive and nonzero, then it is a power of two
+    if (x - 1) & x is equal to 0.
+  */
+  int y = x >> 31;
+  int nonzero = (((~x + 1) >> 31) | (x >> 31)) & 1;
+  return ((!((x + (~1 + 1)) & x) & ~y) | (0 & y)) & nonzero;
 }
 /* 
  * abs - absolute value of x (except returns TMin for TMin)
