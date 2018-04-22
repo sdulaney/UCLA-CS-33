@@ -272,7 +272,12 @@ int copyLSB(int x) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  /*
+    Returns 1 if (1) x and y have different signs and x is negative,
+    or (2) if x and y have the same sign and the y - x is positive.
+  */
+  int diff_signs = !(x >> 31) ^ !(y >> 31);
+  return (diff_signs & (x >> 31)) | (!diff_signs & !((y + (~x + 1)) >> 31));
 }
 /*
  * multFiveEights - multiplies by 5/8 rounding toward 0.
